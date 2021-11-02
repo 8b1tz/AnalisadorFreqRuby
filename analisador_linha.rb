@@ -3,6 +3,8 @@ class AnalisadorLinha
   def initialize(n_linha, conteudo)
     @n_linha = n_linha
     @conteudo =  conteudo
+    @max = 0
+    @maiores_palavra = []
     end
 
 
@@ -12,10 +14,19 @@ class AnalisadorLinha
     }
   end
 
-  def to_str
-    "Frequência: #{@frequencia} Linha: #{@n_linha}\n"
+  def maior_frequencia()
+    @frequencia.each{ |k,v|
+      if @max <= v
+        @maiores_palavra.push(k)
+        @max = v
+      end
+    }
+    return @maiores_palavra
   end
 
+  def to_str
+    "Frequência: #{@frequencia} | Linha: #{@n_linha} | palavra(s) com mais frequência:  #{maior_frequencia} \n"
+  end
 end
 
 numero_linhas = 0
