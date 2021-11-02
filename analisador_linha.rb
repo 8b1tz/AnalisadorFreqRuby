@@ -2,19 +2,18 @@ class AnalisadorLinha
 
   def initialize(n_linha, conteudo)
     @n_linha = n_linha
-    @conteudo = conteudo
-    @frequencia
-  end
+    @conteudo =  conteudo
+    end
+
 
   def gerar_analise()
     @frequencia = @conteudo.split.each_with_object(Hash.new(0)) {
-      |palavra, hash|
-      hash[palavra] += 1
+      |palavra, hash| hash[palavra] += 1
     }
   end
 
   def to_str
-    "#{@frequencia} \n"
+    "Frequência: #{@frequencia} Linha: #{@n_linha}\n"
   end
 
 end
