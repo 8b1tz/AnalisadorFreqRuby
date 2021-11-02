@@ -25,15 +25,6 @@ class AnalisadorLinha
   end
 
   def to_str
-    "Frequência: #{@frequencia} | Linha: #{@n_linha} | palavra(s) com mais frequência:  #{maior_frequencia} \n"
+    "Frequência: #{@frequencia} | Linha: #{@n_linha + 1} | palavra(s) com mais frequência:  #{maior_frequencia} \n"
   end
-end
-
-numero_linhas = 0
-
-File.open('palavras.txt').each do |conteudo|
-  analiseFinal = AnalisadorLinha.new(numero_linhas, conteudo)
-  analiseFinal.gerar_analise
-  print(analiseFinal.to_str)
-  numero_linhas += 1
 end
